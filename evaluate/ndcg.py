@@ -56,15 +56,17 @@ def ndcg(answer, pred, topn):
 #     return sum_ndcg/gt_list.shape[0]
 
 
-def average_ndcg(users, pred, gt, topn, num_user):
+def average_ndcg(users, pred, gt, topn, all_users):
+
+    user_map = {u:i for i,u in enumerate(all_users)}
 
     # 유저별로 결과를 모아줄 리스트 생성 (gt에는 1,0, pred에는 예측 확률)
-    gt_list = [[] for x in range(num_user)]
-    pred_list = [[] for x in range(num_user)]
+    gt_list = [[] for x in range(len(all_users))]
+    pred_list = [[] for x in range(len(all_users))]
 
     for u,p,g in zip(users, pred, gt):
-        gt_list[u].append(g)
-        pred_list[u].append(p[0])
+        gt_list[user_map[u]].append(g)
+        pred_list[user_map[u]].append(p[0])
 
     gt_list = np.array(gt_list)
     pred_list = np.array(pred_list)
@@ -83,4 +85,4 @@ def average_ndcg(users, pred, gt, topn, num_user):
         dcg = discounted_cumulated_gain(g[::-1], topn) # g가 현재 오름차순으로 되어 있음
         sum_ndcg += dcg/common_idcg
 
-    return sum_ndcg/num_user
+    return sum_ndcg/len(all_users)
