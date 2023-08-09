@@ -4,3 +4,7 @@
 ## Datasets
 - pinterest from https://sites.google.com/site/xueatalphabeta/academic-projects
 - movielens-100k from https://grouplens.org/datasets/movielens/100k/
+- movielens-1M from https://grouplens.org/datasets/movielens/1M/
+
+## Models
+- NCF, 2017

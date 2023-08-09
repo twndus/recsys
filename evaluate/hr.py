@@ -29,5 +29,5 @@ def average_hr(users, pred, gt, topn, all_users):
 
     return sum_hits/len(all_users), hit_list
 
-def binary_hr(array, topn):
-    return array[:topn].sum()
+# def binary_hr(array, topn):
+#     return array[:topn].sum()
