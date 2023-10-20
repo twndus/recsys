@@ -7,4 +7,4 @@
 - movielens-1M from https://grouplens.org/datasets/movielens/1M/
 
 ## Models
-- NCF, 2017
+- [NCF, 2017](https://github.com/twndus/recsys/blob/main/models/ncf-movielens.ipynb)
